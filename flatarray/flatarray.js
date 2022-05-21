@@ -28,10 +28,10 @@ const demo = [1, 2, [3, 4, [5]]];
 // flat n level
 
 // 1. flat using Array.prototype.reduce()
-export function flat(array) {
+function flat1(array) {
   return array.reduce((temp, item) => {
     if (Array.isArray(item)) {
-      temp = temp.concat(flat(item));
+      temp = temp.concat(flat1(item));
     } else {
       temp.push(item);
     }
@@ -41,7 +41,7 @@ export function flat(array) {
 }
 
 // 2. flat using Array.protoype.forEach()
-export function flat2(array) {
+function flat2(array) {
   let flatArray = [];
 
   array.forEach((element) => {
